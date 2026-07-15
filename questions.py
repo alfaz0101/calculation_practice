@@ -8,10 +8,13 @@ second_number = randint(1, 100)
 
 #gets the answer and says if its correct or not
 def generate_question():
-    answer = int(input(f"{first_number} x {second_number} = "))
-    if answer == first_number * second_number:
-        print("Correct")
-    else:
+    try:
+        answer = int(input(f"{first_number} x {second_number} = "))
+        if answer == first_number * second_number:
+            print("Correct")
+        else:
+            print(f"Incorrect, the correct answer was {first_number * second_number}")
+    except:
         print(f"Incorrect, the correct answer was {first_number * second_number}")
 
 #creates a thread targetting towards the generate_question function
