@@ -14,7 +14,7 @@ def generate_question():
             print("Correct")
         else:
             print(f"Incorrect, the correct answer was {first_number * second_number}")
-    except:
+    except ValueError:
         print(f"Incorrect, the correct answer was {first_number * second_number}")
 
 #creates a thread targetting towards the generate_question function
