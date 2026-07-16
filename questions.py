@@ -1,10 +1,9 @@
-from random import randint
 import threading
 import time
+import sys
 
-#generates random numbers to multiply
-first_number = randint(1, 100)
-second_number = randint(1, 100)
+first_number = int(sys.argv[1])
+second_number = int(sys.argv[2])
 
 #gets the answer and says if its correct or not
 def generate_question():
