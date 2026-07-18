@@ -11,10 +11,16 @@ def generate_question():
         answer = int(input(f"{first_number} x {second_number} = "))
         if answer == first_number * second_number:
             print("Correct")
+            with open("score.txt", "a") as score:
+                score.write("Correct\n")
         else:
             print(f"Incorrect, the correct answer was {first_number * second_number}")
+            with open("score.txt", "a") as score:
+                score.write("Incorrect\n")
     except ValueError:
         print(f"Incorrect, the correct answer was {first_number * second_number}")
+        with open("score.txt", "a") as score:
+            score.write("Incorrect\n")
 
 #creates a thread targetting towards the generate_question function
 question_thread = threading.Thread(target=generate_question, daemon= True)
@@ -32,3 +38,5 @@ end = time.perf_counter()
 #if timeout is reached print times up
 if (end - start) // 1 == 15:
     print(f"Time's Up, the answer was {first_number * second_number}")
+    with open("score.txt", "a") as score:
+        score.write("Incorrect\n")

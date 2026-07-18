@@ -1,5 +1,8 @@
 import subprocess
 from random import randint
+from score_handling import delete_score, get_score, get_score_length
+
+delete_score()
 
 while True:
 
@@ -15,3 +18,7 @@ while True:
 
     else:
         break
+
+score_percentage = get_score() * 100 / get_score_length()
+
+print(f"You answered {get_score()}/{get_score_length()} correct, or roughly {score_percentage}% correct")
